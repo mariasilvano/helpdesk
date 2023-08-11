@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="style-user.css">
+    <title>HelpDesk</title>
+</head>
+<body>
+    <aside class="sidebar">
+        <header class="sidebar-header">
+            <img class="perfil-img"src="https://github.com/mariasilvano.png" alt="Foto do Usuário">
+        </header>
+        <nav>
+            <button>
+                <span>
+                    <i class="material-symbols-outlined">home</i>
+                    <span>
+                        Home
+                    </span>
+                </span>
+            </button>
+            <button>
+                <span>
+                    <i class="material-symbols-outlined">person</i>
+                    <span>
+                        Perfil
+                    </span>
+                </span>
+            </button>
+            <button onclick="novoTicket()">
+                <span>
+                    <i class="material-symbols-outlined">add </i>
+                    <span>
+                        Criar Ticket
+                    </span>
+                </span>
+            </button>
+            <button>
+                <span>
+                    <i class="material-symbols-outlined">lists</i>
+                    <span>
+                        Tickets
+                    </span>
+                </span>
+            </button>
+        </nav>
+    </aside>
+    <button class="mobile" onclick="toogleMenu()">
+        <i class="material-symbols-outlined">menu</i>
+        <span>Menu</span>
+    </button>
+
+    <nav class="menu-mobile" id="menu-mobile">
+        <button id="close" onclick="toogleMenu()">
+            <span>
+                <i class="material-symbols-outlined">close</i>
+            </span>
+        </button>
+        <button>
+            <span>
+                <i class="material-symbols-outlined">home</i>
+                <span class="mobile-text">
+                    Home
+                </span>
+            </span>
+        </button>
+        <button>
+            <span>
+                <i class="material-symbols-outlined">person</i>
+                <span class="mobile-text">
+                    Perfil
+                </span>
+            </span>
+        </button>
+        <button onclick="novoTicket()">
+            <span>
+                <i class="material-symbols-outlined">add </i>
+                <span class="mobile-text">
+                    Criar Ticket
+                </span>
+            </span>
+        </button>
+        <button>
+            <span>
+                <i class="material-symbols-outlined">lists</i>
+                <span class="mobile-text">
+                    Tickets
+                </span>
+            </span>
+        </button>
+    </nav>
+    <main class ="main">
+        <h1>Bem vindo ao portal de suporte, crie um novo ticket ou acompanhe os existentes</h1>
+    </main>
+    <script src="user.js"></script>
+</body>
+</html>
