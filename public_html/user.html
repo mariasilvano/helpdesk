@@ -13,19 +13,11 @@
             <img class="perfil-img"src="https://github.com/mariasilvano.png" alt="Foto do Usuário">
         </header>
         <nav>
-            <button>
+            <button onclick="home()">
                 <span>
                     <i class="material-symbols-outlined">home</i>
                     <span>
-                        Home
-                    </span>
-                </span>
-            </button>
-            <button>
-                <span>
-                    <i class="material-symbols-outlined">person</i>
-                    <span>
-                        Perfil
+                        Página Inicial
                     </span>
                 </span>
             </button>
@@ -37,11 +29,19 @@
                     </span>
                 </span>
             </button>
-            <button>
+            <button onclick="carregarTickets()">
                 <span>
                     <i class="material-symbols-outlined">lists</i>
                     <span>
                         Tickets
+                    </span>
+                </span>
+            </button>
+            <button>
+                <span>
+                    <i class="material-symbols-outlined">logout</i>
+                    <span class="mobile-text">
+                        Sair
                     </span>
                 </span>
             </button>
@@ -58,19 +58,11 @@
                 <i class="material-symbols-outlined">close</i>
             </span>
         </button>
-        <button>
+        <button onclick="home()">
             <span>
                 <i class="material-symbols-outlined">home</i>
                 <span class="mobile-text">
-                    Home
-                </span>
-            </span>
-        </button>
-        <button>
-            <span>
-                <i class="material-symbols-outlined">person</i>
-                <span class="mobile-text">
-                    Perfil
+                    Página Inicial
                 </span>
             </span>
         </button>
@@ -82,7 +74,7 @@
                 </span>
             </span>
         </button>
-        <button>
+        <button onclick="carregarTickets()">
             <span>
                 <i class="material-symbols-outlined">lists</i>
                 <span class="mobile-text">
@@ -90,10 +82,92 @@
                 </span>
             </span>
         </button>
+        <button>
+            <span>
+                <i class="material-symbols-outlined">logout</i>
+                <span class="mobile-text">
+                    Sair
+                </span>
+            </span>
+        </button>
     </nav>
-    <main class ="main">
-        <h1>Bem vindo ao portal de suporte, crie um novo ticket ou acompanhe os existentes</h1>
+    <main class ="main" id ="main">
+        <div class ="home" id="home">
+            <h1 class="fundo">Bem vindo ao portal de suporte, crie um novo ticket ou acompanhe os existentes</h1>
+            <img class="fundo" src="fundo.svg" alt="fundo">
+        </div>
+        <div class="ticket" id="ticket">
+            <div class="novoTicket" id = "novoTicket">
+                <div class="header novoTicket">
+                    <h2>Criar Novo Ticket</h2>
+                </div>
+                <form id="form" class="form">
+                    <div class="form-control">
+                        <label for="titulo">Título</label>
+                        <input
+                            type="text"
+                            id="titulo"
+                            placeholder="Digite o título do ticket..."
+                        />
+                        <i class="fas fa-exclamation-circle"></i>
+                        <i class="fas fa-check-circle"></i>
+                        <small>O título é obrigatório.</small>
+                    </div>
+                    <div class="form-control">
+                        <label for="descricao">Descrição</label>
+                        <textarea style="resize: none;" id="descricao" name="descricao" rows="4" cols="50" placeholder="Descreva o seu problema aqui..."></textarea>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <i class="fas fa-check-circle"></i>
+                        <small>A descrição é obriatória.</small>
+                    </div>
+                    <div class="form-control">
+                        <label for= "categoria">Categoria</label>
+                        <select name="categoria" id="categoria">                        
+                        </select>
+                    </div>                  
+                    <button type="submit">Criar</button>
+                    
+                </form>
+            </div>
+        </div>
+        <div class="tickets" id="tickets">
+            <div class="painel" id="painel">
+                <section class="cabecalho">
+                    <h1 id="teste">Meus Tickets</h1>
+                </section>
+                <section class="corpo">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Descrição</th>
+                                <th>Categoria</th>
+                                <th>Status</th>
+                                <th>Técnico</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
     </main>
-    <script src="user.js"></script>
+    <script src="user.js">
+    </script>
+    <script>
+        window.onload = home();
+    </script>
+    <script
+        src="https://kit.fontawesome.com/e8b9c7ab9b.js"
+        crossorigin="anonymous"
+    ></script>
 </body>
 </html>
