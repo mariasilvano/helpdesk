@@ -1,0 +1,36 @@
+<!DOCTYPE html>​
+
+<html>
+
+<head>​
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="/style-home.css">
+    <title>HelpDesk</title>​
+</head>​
+
+<body>​
+    <center> ​
+        <aside class="sidebar">
+            <a id="cadTicket" href="/ticketCreate"> <button id="cadTicket"> Cadastrar Ticket</button>
+            </a>​
+            <a href="/ticketList"> <button id="tickets"> Tickets</button> </a> ​
+            <a id="cadCategoria" href="/categoriaCreate"><button id="cadCategoria"> Cadastrar
+                    Categoria</button></a>​
+            <a href="/usuarioList"> <button id="cadTecnico"> Cadastrar Técnico</button> </a>​
+            <a href="/logout"><button>Logout</button></a>
+        </aside>
+        <main class="main" id="main">
+            <div class="home" id="home">
+                <h1>Bem vindo ao portal de suporte, crie um novo ticket ou acompanhe os existentes</h1>​
+                <img class="fundo" src="images/fundo.svg" alt="fundo">
+            </div>
+            <br> <br>​
+        </main>​
+        {{{body}}}
+    </center>​
+</body>​
+<script>
+</script>
+<script src="/home.js"></script>
+
+</html>

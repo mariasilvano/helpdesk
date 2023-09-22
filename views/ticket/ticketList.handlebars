@@ -1,0 +1,43 @@
+<div class="tickets" id="tickets">
+    <table border="1px">
+        <tr>
+            <td> Título </td>
+            <td> Descrição </td>
+            <td> Status </td>
+            <td> Categoria </td>
+            <td> Técnico </td>
+            <td> Observação </td>
+            <td> Editar </td>
+        </tr>
+        {{#each tickets}}
+        <tr>
+            <td>{{titulo}}</td>
+            <td>{{descricao}}</td>
+            <td>
+                {{#switch status}}
+                {{#case "P"}}
+                <option> Pendente </option>
+                {{/case}}
+                {{#case "A"}}
+                <option> Em análise </option>
+                {{/case}}
+                {{#case "R"}}
+                <option> Resolvido </option>
+                {{/case}}
+                {{#case "C"}}
+                <option> Cancelado </option>
+                {{/case}}
+                {{#default}}
+                <option> Valor desconhecido </option>
+                {{/default}}
+                {{/switch}}
+            </td>
+            <td>{{categoria}}</td>
+            <td>{{#if tecnicoId}}{{tecnicoId}}{{else}}N/A{{/if}}</td>
+            <td>{{observacao}}</td>
+            <td><a href="ticketUpdate/{{id}}">Editar</a></td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+<script src="ticketList.js"></script>

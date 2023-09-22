@@ -1,62 +1,48 @@
-const db = require('./config/db');
-const path = require('path');
+const middlewares = require('./middlewares/middlewares')
+const routes = require('./routers/route');
+const handlebars = require('express-handlebars');
 const express = require('express');
 const app = express();
-app.use(
-    express.urlencoded({
-      extended: true
-    })
-  )
-/*db.sequelize.sync({force: true}).then(() => {
-    console.log('{ force: true }');
-});*/
+const path = require('path');
+var session = require('express-session');
+
+app.use(session({secret: 'textosecreto',
+    cookie:{ maxAge:30 *60*1000}
+}))
 
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(middlewares.logRegister, middlewares.sessionControl )
 
-app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'login.html'));
-});
 
-app.get('/novaConta', (req, res) => {
-        res.sendFile(path.join(__dirname, 'public', 'novaConta.html'));
-});
-app.post("/cadastrarUsuario", function(req,res){
-    console.log('AQUI está cadastrando');
+app.engine('handlebars', handlebars.engine({
+    defaultLayout: 'main',
+    helpers: {
+        if: function (conditional, options) {
+            if (conditional) {
+                return options.fn(this);
+            } else {
+                return options.inverse(this);
+            }
+        },
+        switch: function (value, options) {
+            this._switch_value_ = value;
+            const html = options.fn(this);
+            delete this._switch_value_;
+            return html;
+        },
+        case: function (value, options) {
+            if (value === this._switch_value_) {
+                return options.fn(this);
+            }
+        }
+    }
+}));
+app.set('view engine','handlebars');
 
-    db.Usuario.create({
-        nome:req.body.nome,
-        senha:req.body.senha,
-    })
-    res.redirect('/login');
-});
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(routes);
 
-app.get('/home', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'home.html'));
-});
-
-app.post("/cadastrarTicket", function(req,res){
-    db.Ticket.create({
-        titulo:req.body.titulo,
-        descricao:req.body.descricao,
-        categoria:req.body.categoria
-    })
-    res.redirect('/tickets');
-});
-
-app.post("/cadastrarCategoria", function(req,res){
-    db.Categoria.create({
-        nome:req.body.nome,
-        descricao:req.body.descricao
-    })
-});
-
-app.get("/categorias",function(req,res){
-    (async () => {
-            const categorias = await db.Categoria.findAll();
-            res.json(categorias);
-    })();
-});
-
-app.listen(8081, function(){
-        console.log("Servidor no http://localhost:8081/login")
+app.listen(8082, function(){
+        console.log("Servidor no http://localhost:8082")
 });

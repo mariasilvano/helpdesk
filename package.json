@@ -1,7 +1,7 @@
 {
-  "name": "helpdesk",
+  "name": "teste",
   "version": "1.0.0",
-  "description": "Projeto de Web2",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,6 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "express-handlebars": "^7.1.2",
+    "express-session": "^1.17.3",
+    "node-fetch": "^3.3.2",
     "pg": "^8.11.3",
     "sequelize": "^6.32.1"
   }

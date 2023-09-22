@@ -1,3 +1,4 @@
+const Categoria = require('./categoria');
 module.exports = (sequelize, Sequelize) => {
     const Ticket = sequelize.define('tickets',{
         id: {
@@ -25,7 +26,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.INTEGER,
             allowNull: false
         },
-        idcateoria:{
+        categoriaId:{
             type: Sequelize.INTEGER,
             allowNull: false
         },
@@ -40,5 +41,6 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: true
         }
     });
+
     return Ticket;
 }

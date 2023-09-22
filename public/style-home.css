@@ -38,7 +38,7 @@ body *{
     transition: all 0.35s;
 }
 
-.sidebar button > span{
+.sidebar button{
     display: inline-flex;
     align-items: center;
     gap: 12px;
@@ -47,9 +47,10 @@ body *{
     border-radius: 24px;
     line-height: 1;
     transition: all 0.2s;
+    color: #77ffc0;
 }
 
-.sidebar button:hover > span{
+.sidebar button:hover {
     background: #2f2841;
 }
 
@@ -86,7 +87,7 @@ body *{
     margin:0;
     font-size: 25px;
 }
-.ticket, .cadCategoria{
+.novoTicket, .cadCategoria{
     background-color: #2f2841;
     border-radius: 10px;
     overflow: hidden;
@@ -95,24 +96,30 @@ body *{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.novoTicket{
-    display: flex;
     flex-direction: column;
+}
+.tickets{    
+    margin-left: 240px;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width:100%;
+    display: flex;
     justify-content: center;
     align-items: center;
-    align-content: center;
+    flex-direction: column;
 }
 .form{
     padding: 20px;
 }
 .form-control{
+    align-items: flex-start;
     margin-bottom: 10px;
     padding-bottom: 20px;
     position: relative;
 }
 .form-control label{
-    display: inline-block;
+    display: flex;
+    align-items: center;
     margin-bottom: 5px;
 }
 .form-control input, .form-control textarea  {
@@ -123,50 +130,55 @@ body *{
     width: 100%;
     padding: 10px;
 }
-  .form-control i {
+    .form-control i {
     position: absolute;
     top: 40px;
     right: 10px;
     visibility: hidden;
-  }
+    }
 
 .form-control small {
     position: absolute;
     bottom: 0;
     left: 0;
     visibility: hidden;
-  }
-  
-  .form-control.sucess input, .form-control.sucess textarea{
+    }
+
+.form-control.sucess input, .form-control.sucess textarea{
     border-color: #2ecc71;
-  }
-  .form-control.error input, .form-control.error textarea{
+}
+.form-control.error input, .form-control.error textarea{
     border-color: #e74c3c;
-  }
-  
-  .form-control.sucess i.fa-check-circle {
+}
+
+.form-control.sucess i.fa-check-circle {
     color: #2ecc71;
     visibility: visible;
-  }
-  .form-control.error i.fa-exclamation-circle {
+}
+.form-control.error i.fa-exclamation-circle {
     color: #e74c3c;
     visibility: visible;
-  }
-  .form-control.error small {
+}
+.form-control.error small {
     color: #e74c3c;
     visibility: visible;
-  }
+}
 
-  .form button {
-    background-color: #00ff88;
-    border: 2px solid #00ff88;
-    color: #fff;
-    font-size: 14px;
+.form button {
     width: 100%;
-    border-radius: 10px;
-    padding: 10px;
+    padding: 16px 0px;
+    margin: 25px 0px 0px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: #2b134b;
+    background: #00ff88;
     cursor: pointer;
-  }
+    box-shadow: 0px 10px 40px -12px #00ff8052;
+}
 
 @media only screen and (max-width: 920px){
     .sidebar{
@@ -292,16 +304,16 @@ body *{
 }
 
 .corpo::-webkit-scrollbar-thumb{
-   border-radius: .5rem;
-   background-color: #0004;
-   visibility: hidden;
+    border-radius: .5rem;
+    background-color: #0004;
+    visibility: hidden;
 }
 
 .corpo:hover::-webkit-scrollbar-thumb{
     border-radius: .5rem;
     background-color: #0004;
     visibility: visible;
- }
+}
 
 
 table, th,td{

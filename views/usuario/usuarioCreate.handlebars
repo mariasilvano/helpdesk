@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="header">
+        <h2>CRIAR UMA CONTA</h2>
+    </div>
+    <form id="form" class="form" action="/usuarioCreate" method="post">
+        <div class="form-control">
+            <label for="nome">Nome</label>
+            <input name="login" type="text" id="nome" placeholder="Digite seu nome de usuário">
+            <i class="fas fa-exclamation-circle"></i>
+            <i class="fas fa-check-circle"></i>
+            <small>O nome de usuário é obrigatório.</small>
+        </div>
+        <div class="form-control">
+            <label for="senha">Senha</label>
+            <input name="senha" type="password" id="senha" placeholder="Digite sua senha">
+            <i class="fas fa-exclamation-circle"></i>
+            <i class="fas fa-check-circle"></i>
+            <small>A senha é obrigatória.</small>
+        </div>
+        <div class="form-control">
+            <label for="confirmarsenha">Confirme sua senha</label>
+            <input type="password" id="confirme-senha" placeholder="Digite sua senha novamente">
+            <i class="fas fa-exclamation-circle"></i>
+            <i class="fas fa-check-circle"></i>
+            <small>A senha é obrigatória.</small>
+        </div>
+        <button type="submit">Criar</button>
+    </form>
+</div>
+<script src="https://kit.fontawesome.com/e8b9c7ab9b.js" crossorigin="anonymous"></script>
+<script src="usuarioCreate.js"></script>

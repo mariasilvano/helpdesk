@@ -1,3 +1,5 @@
+const Ticket = require('./ticket');
+
 module.exports = (sequelize, Sequelize) => {
 
     const Categoria = sequelize.define('categorias',{
@@ -16,5 +18,6 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: false
         }
     });
+
     return Categoria;
 }

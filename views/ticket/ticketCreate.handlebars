@@ -1,0 +1,35 @@
+<div class="novoTicket" id="novoTicket">
+    <div class="header novoTicket">
+        <h2>CRIAR TICKET</h2>
+    </div>
+    <form id="form" class="form" action="/ticketCreate" method="post">
+        <div class="form-control">
+            <label for="titulo">Título</label>
+            <input name="titulo" type="text" id="titulo" placeholder="Digite o título do ticket..." />
+            <i class="fas fa-exclamation-circle"></i>
+            <i class="fas fa-check-circle"></i>
+            <small>O título é obrigatório.</small>
+        </div>
+        <div class="form-control">
+            <label for="descricao">Descrição</label>
+            <textarea style="resize: none;" id="descricao" name="descricao" rows="4" cols="50"
+                placeholder="Descreva o seu problema aqui..."></textarea>
+            <i class="fas fa-exclamation-circle"></i>
+            <i class="fas fa-check-circle"></i>
+            <small>A descrição é obriatória.</small>
+        </div>
+        <div class="form-control">
+            <label for="categoria">Categoria</label>
+            <select name="categoria" id="selCategoria">
+                <option value=''>Selecione uma categoria</option>
+            </select>
+            <i class="fas fa-exclamation-circle"></i>
+            <i class="fas fa-check-circle"></i>
+            <small>A categoria é obrigatória.</small>
+        </div>
+        <button id="ticket" type="submit">Criar</button>
+    </form>
+</div>
+<script src="https://kit.fontawesome.com/e8b9c7ab9b.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/createTicket.js"></script>

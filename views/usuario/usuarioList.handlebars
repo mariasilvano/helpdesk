@@ -1,0 +1,46 @@
+<table border="1px">
+    <tr>
+        <td> Login </td>
+        <td> Senha</td>
+        <td> Tipo</td>
+        <td> Editar </td>
+    </tr>
+    {{#each usuarios}}
+    <tr id="linha-{{id}}" data-idusuario="{{id}}">
+        <td>{{login}}</td>
+        <td>{{senha}}</td>
+        <td>
+            <select id="tipoSelect-{{id}}" disabled>
+                {{#switch tipo}}
+                {{#case "A"}}
+                <option value="A" selected>Administrador</option>
+                <option value="U">Usuário Comum</option>
+                <option value="T">Técnico</option>
+                {{/case}}
+                {{#case "U"}}
+                <option value="A">Administrador</option>
+                <option value="U" selected>Usuário Comum</option>
+                <option value="T">Técnico</option>
+                {{/case}}
+                {{#case "T"}}
+                <option value="A">Administrador</option>
+                <option value="U">Usuário Comum</option>
+                <option value="T" selected>Técnico</option>
+                {{/case}}
+                {{#default}}
+                <option value="" selected>Valor desconhecido</option>
+                {{/default}}
+                {{/switch}}
+            </select>
+        </td>
+        <td class="editarBT">
+            <button onclick="habilitarEdicao({{id}})">Editar</button>
+        </td>
+        <td class="salvarBT" style="display: none;">
+            <input type="hidden" name="idUsuario" id="idUsuario" value="{{id}}">
+            <button onclick="salvarEdicao('{{id}}', '{{id}}')">Salvar</button>
+        </td>
+    </tr>
+    {{/each}}
+</table>
+<script src="usuarioList.js"></script>

@@ -1,0 +1,27 @@
+<div class="cadCategoria" id="cadCategoria">
+    <div class="novoTicket" id="novoTicket">
+        <div class="header novoTicket">
+            <h2>CRIAR CATEGORIA</h2>
+        </div>
+        <form id="formCat" class="form" action="/categoriaCreate" method="post">
+            <div class="form-control">
+                <label for="nome">Nome</label>
+                <input id="nomeCat" name="nome" type="text" placeholder="Digite o nome da categoria..." />
+                <i class="fas fa-exclamation-circle"></i>
+                <i class="fas fa-check-circle"></i>
+                <small>O nome é obrigatório.</small>
+            </div>
+            <div class="form-control">
+                <label for="descricao">Descrição</label>
+                <textarea style="resize: none;" id="descricaoCat" name="descricao" rows="4" cols="50"
+                    placeholder="Descreva a categoria aqui..."></textarea>
+                <i class="fas fa-exclamation-circle"></i>
+                <i class="fas fa-check-circle"></i>
+                <small>A descrição da categoria é obriatória.</small>
+            </div>
+            <button id="categoriabt" type="submit">Criar</button>
+        </form>
+    </div>
+</div>
+<script src="https://kit.fontawesome.com/e8b9c7ab9b.js" crossorigin="anonymous"></script>
+<script src="/createCategoria.js"></script>

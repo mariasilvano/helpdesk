@@ -1,0 +1,68 @@
+<div class="novoTicket" id="novoTicket">
+    <form id="form" class="form" action="/ticketUpdate" method="post">
+        <input type="hidden" name="id" value={{ticket.id}}>
+        <div class="form-control">
+            <label for="titulo">Título</label>
+            <input name="titulo" type="text" id="titulo" value="{{ticket.titulo}}" />
+        </div>
+        <div class="form-control">
+            <label for="descricao">Descrição</label>
+            <textarea style="resize: none;" id="descricao" name="descricao" rows="4"
+                cols="50">{{ticket.descricao}}</textarea>
+        </div>
+        <div class="form-control">
+            <label for="status">Status</label>
+            <select name="status" id="status">
+                {{#switch ticket.status}}
+                {{#case "P"}}
+                <option value="P" selected> Pendente </option>
+                <option value="A"> Em análise </option>
+                <option value="R"> Resolvido </option>
+                <option value="C"> Cancelado </option>
+                {{/case}}
+                {{#case "A"}}
+                <option value="P"> Pendente </option>
+                <option value="A" selected> Em análise </option>
+                <option value="R"> Resolvido </option>
+                <option value="C"> Cancelado </option>
+                {{/case}}
+                {{#case "R"}}
+                <option value="P"> Pendente </option>
+                <option value="A"> Em análise </option>
+                <option value="R" selected> Resolvido </option>
+                <option value="C"> Cancelado </option>
+                {{/case}}
+                {{#case "C"}}
+                <option value="P"> Pendente </option>
+                <option value="A"> Em análise </option>
+                <option value="R"> Resolvido </option>
+                <option value="C" selected> Cancelado </option>
+                {{/case}}
+                {{#default}}
+                <option value="" selected>Valor desconhecido</option>
+                {{/default}}
+                {{/switch}}
+            </select>
+        </div>
+        <div class="form-control">
+            <label for="categoria">Categoria</label>
+            <select name="categoria" id="selCategoria" data-categoria="{{ticket.categoriaId}}">
+                <option value=''>Selecione uma categoria</option>
+            </select>
+        </div>
+        <div class="form-control">
+            <label for="tecnico">Técnico</label>
+            <select name="tecnicoId" id="selTecnico" data-tecnico="{{ticket.tecnicoId}}">
+                <option value=''>Selecione um técnico</option>
+            </select>
+        </div>
+        <div class="form-control">
+            <label for="descricao">Observação</label>
+            <textarea style="resize: none;" id="observacao" name="observacao" rows="4" cols="50"></textarea>
+        </div>
+        <button id="ticket" type="submit">Salvar</button>
+    </form>
+</div>
+<script src="https://kit.fontawesome.com/e8b9c7ab9b.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/updateTicket.js"></script>

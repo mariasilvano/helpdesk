@@ -6,7 +6,7 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: false,
             primaryKey: true
         },
-        nome: {
+        login: {
             type: Sequelize.STRING(100), 
             allowNull: false
         },
@@ -14,7 +14,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING(50),
             allowNull: false
         },
-        tipousuario: {
+        tipo: {
             //A - Administrador T - técnico U - usuário'; 
             type: Sequelize.STRING(1),
             allowNull: false,
