@@ -1,5 +1,3 @@
-<!DOCTYPE html>​
-
 <html>
 
 <head>​
@@ -11,13 +9,27 @@
 <body>​
     <center> ​
         <aside class="sidebar">
-            <a id="cadTicket" href="/ticketCreate"> <button id="cadTicket"> Cadastrar Ticket</button>
+            <a href="/home">
+                <button class="item-menu" id="btHome"><i class="material-symbols-outlined">home</i>Página
+                    Inicial</button>
             </a>​
-            <a href="/ticketList"> <button id="tickets"> Tickets</button> </a> ​
-            <a id="cadCategoria" href="/categoriaCreate"><button id="cadCategoria"> Cadastrar
+            <a href="/ticketCreate">
+                <button class="item-menu" id="cadTicket"><i class="material-symbols-outlined">add</i>Cadastrar
+                    Ticket</button>
+            </a>​
+            <a href="/ticketList">
+                <button class="item-menu" id="tickets"><i class="material-symbols-outlined">lists</i>Tickets</button>
+            </a> ​
+            {{#if adm}}
+            <a href="/categoriaCreate">
+                <button class="item-menu" id="cadCategoria"><i class="material-symbols-outlined">shadow_add</i>Cadastrar
                     Categoria</button></a>​
-            <a href="/usuarioList"> <button id="cadTecnico"> Cadastrar Técnico</button> </a>​
-            <a href="/logout"><button>Logout</button></a>
+            <a href="/usuarioList"><button class="item-menu" id="cadTecnico"><i
+                        class="material-symbols-outlined">person_add</i>Cadastrar
+                    Técnico</button> </a>​
+            {{/if}}
+            <a href="/logout">
+                <button class="item-menu"><i class="material-symbols-outlined">logout</i>Logout</button></a>
         </aside>
         <main class="main" id="main">
             <div class="home" id="home">
@@ -27,10 +39,6 @@
             <br> <br>​
         </main>​
         {{{body}}}
-    </center>​
-</body>​
-<script>
-</script>
-<script src="/home.js"></script>
-
+    </center>
+</body>
 </html>

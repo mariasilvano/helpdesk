@@ -33,7 +33,8 @@ module.exports = (sequelize, Sequelize) => {
         tecnicoId:{
             //Técnico responsável pelo Ticket
             type: Sequelize.INTEGER,
-            allowNull: true
+            allowNull: true,
+            defaultValue: null
         },
         observacao:{
             //O técnico pode adicionar uma observação quando concluir o Ticket

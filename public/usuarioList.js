@@ -1,6 +1,9 @@
 main.style.display = 'none';
 let idDaLinhaAtualmenteEditada = null;
 
+const botaoAtivo = document.getElementById("cadTecnico");
+botaoAtivo.classList.add('ativo')
+
 function habilitarEdicao(id) {
     if (idDaLinhaAtualmenteEditada !== null && idDaLinhaAtualmenteEditada !== id) {
         alert('Conclua a edição da linha atual antes de editar outra.');
@@ -22,8 +25,6 @@ async function salvarEdicao(id, idUsuario) {
 
     const selectElement = document.querySelector(`#tipoSelect-${id}`);
     const novoTipo = selectElement.value;
-    console.log("salvarEdicao");
-    console.log(idUsuario);
 
     const data = {
         id: idUsuario,

@@ -14,8 +14,18 @@ module.exports = {
         db.Usuario.findAll({ where: { login: req.body.login, senha: req.body.senha } }
             ).then(usuarios => {
                 if (usuarios.length > 0) {
-                    console.log(req.body.login)
                     req.session.login = req.body.login
+                    req.session.tipo = usuarios[0].dataValues.tipo;
+                    if (usuarios[0].dataValues.tipo == 'A') {
+                        res.locals.adm = true;
+                    } else if(usuarios[0].dataValues.tipo == 'T'){
+                        res.locals.tecnico = true;
+                        res.locals.adm = false;
+                    } else if(usuarios[0].dataValues.tipo == 'U'){
+                        res.locals.tecnico = false;
+                        res.locals.adm = false;
+                    }
+                    req.session.userId = usuarios[0].dataValues.id;
                     res.render('home');
                 } else {
                     res.redirect('/');
@@ -78,11 +88,7 @@ module.exports = {
             if (!usuario) {
                 return res.status(404).json({ success: false, message: 'Usuário não encontrado.' });
             }
-    
-            //Atualiza o tipo do usuário
             usuario.tipo = novoTipo;
-            
-            //Salva o novo tipo de usuário
             await usuario.save();
     
             res.json({ success: true, message: 'Tipo de usuário atualizado com sucesso.' });

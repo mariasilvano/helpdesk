@@ -3,12 +3,12 @@
         <input type="hidden" name="id" value={{ticket.id}}>
         <div class="form-control">
             <label for="titulo">Título</label>
-            <input name="titulo" type="text" id="titulo" value="{{ticket.titulo}}" />
+            <input name="titulo" type="text" id="titulo" value="{{ticket.titulo}}" {{#if tecnico}}disabled{{/if}} />
         </div>
         <div class="form-control">
             <label for="descricao">Descrição</label>
-            <textarea style="resize: none;" id="descricao" name="descricao" rows="4"
-                cols="50">{{ticket.descricao}}</textarea>
+            <textarea style="resize: none;" id="descricao" name="descricao" rows="4" {{#if tecnico}}disabled{{/if}}
+                cols="50">{{ticket.descricao}} </textarea>
         </div>
         <div class="form-control">
             <label for="status">Status</label>
@@ -46,14 +46,23 @@
         </div>
         <div class="form-control">
             <label for="categoria">Categoria</label>
-            <select name="categoria" id="selCategoria" data-categoria="{{ticket.categoriaId}}">
-                <option value=''>Selecione uma categoria</option>
+            <select name="categoria" id="selCategoria" data-categoria="{{ticket.categoriaId}}" {{#if tecnico}}disabled{{/if}}>
+                {{#each categorias}}
+                <tr>
+                    <option value={{id}}>{{nome}}</option>
+                </tr>
+                {{/each}}
             </select>
         </div>
         <div class="form-control">
             <label for="tecnico">Técnico</label>
-            <select name="tecnicoId" id="selTecnico" data-tecnico="{{ticket.tecnicoId}}">
-                <option value=''>Selecione um técnico</option>
+            <select name="tecnicoId" id="selTecnico" data-tecnico="{{ticket.tecnicoId}}" {{#if tecnico}}disabled{{/if}}>
+                <option value="">Nenhum</option>
+                {{#each tecnicos}}
+                <tr>
+                    <option value={{id}}>{{login}}</option>
+                </tr>
+                {{/each}}
             </select>
         </div>
         <div class="form-control">

@@ -8,7 +8,7 @@ const route = express.Router();
 /*CRIAÇÃO DO BANCO DE DADOS BD 
 db.sequelize.sync({force: true}).then(() => {
     console.log('{ force: true }');
-    db.Usuario.create({login: 'adm', senha:'1234', tipo:'A'});
+    db.Usuario.create({login: 'adm', senha:'123', tipo:'A'});
 });*/
 
 module.exports = route;
@@ -22,7 +22,6 @@ route.get("/home", function (req, res) {
         res.redirect('/');
     }
 });
-
 
 //Controller Usuario
 //Usuario -  Login 

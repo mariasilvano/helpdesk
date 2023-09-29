@@ -1,6 +1,9 @@
 main.style.display = 'none';
 
-$.ajax({
+const botaoAtivo = document.getElementById("cadTicket");
+botaoAtivo.classList.add('ativo')
+
+/*$.ajax({
     url: '/categorias',
     method: 'GET',
     dataType: 'json',
@@ -19,7 +22,7 @@ $.ajax({
     error: function (error) {
         console.error('Erro ao buscar as categorias:', error);
     },
-});
+});*/
 
 const form = document.getElementById("form");
 const titulo = document.getElementById("titulo");

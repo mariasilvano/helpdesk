@@ -1,5 +1,8 @@
 main.style.display = 'none';
-
+/**/
+    const botaoAtivo = document.getElementById("cadCategoria");
+    botaoAtivo.classList.add('ativo')
+/**/
 const form = document.getElementById("formCat");
 const titulo = document.getElementById("nomeCat");
 const descricao = document.getElementById("descricaoCat");

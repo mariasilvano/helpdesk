@@ -16,21 +16,24 @@ module.exports = {
                 console.log(err);
             });
     },
-    async getList(req, res){
+/*async getList(req, res){
         try {
-            // Consulte o banco de dados usando Sequelize para buscar as opções desejadas
-            const categorias = await db.Categoria.findAll(); // Suponha que você tenha um modelo 'Categoria' definido
-        
-            // Mapeie as categorias para o formato adequado
+            const categorias = await db.Categoria.findAll(); 
             const opcoesSelect = categorias.map(categoria => ({
-              value: categoria.id,
-              text: categoria.nome,
+                value: categoria.id,
+                text: categoria.nome,
             }));
-        
-            // Envie as opções como resposta JSON
             res.json(opcoesSelect);
-          } catch (error) {
+            } catch (error) {
             console.error(error);
             res.status(500).json({ error: 'Erro ao buscar as categorias.' });
-          }
+            }
+},*/
+async getList(req, res) {
+    db.Categoria.findAll().then(categorias => {
+        res.render('categoria/categoriaList', { 
+            categorias: categorias.map(catg => catg.toJSON())});
+    }).catch((err) => {
+        console.log(err);
+    });
 }};

@@ -1,6 +1,6 @@
 <div class="novoTicket" id="novoTicket">
     <div class="header novoTicket">
-        <h2>CRIAR TICKET</h2>
+        <h2>CADASTRAR TICKET</h2>
     </div>
     <form id="form" class="form" action="/ticketCreate" method="post">
         <div class="form-control">
@@ -20,13 +20,19 @@
         </div>
         <div class="form-control">
             <label for="categoria">Categoria</label>
-            <select name="categoria" id="selCategoria">
-                <option value=''>Selecione uma categoria</option>
+            <select name="categoriaId" id="selCategoria">
+                {{#each categorias}}
+                <tr>
+                    <option value={{id}}>{{nome}}</option>
+                    <!--<option value=''>Selecione uma categoria</option>-->
+                </tr>
+                {{/each}}
             </select>
             <i class="fas fa-exclamation-circle"></i>
             <i class="fas fa-check-circle"></i>
             <small>A categoria é obrigatória.</small>
         </div>
+        <input type="hidden" id="autorId" name="autorId" value="{{userId}}">
         <button id="ticket" type="submit">Criar</button>
     </form>
 </div>

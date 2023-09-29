@@ -7,25 +7,30 @@
             <td> Categoria </td>
             <td> Técnico </td>
             <td> Observação </td>
+            {{#if adm}}
             <td> Editar </td>
+            {{/if}}
+            {{#if tecnico}}
+            <td> Editar </td>
+            {{/if}}
         </tr>
         {{#each tickets}}
         <tr>
             <td>{{titulo}}</td>
             <td>{{descricao}}</td>
-            <td>
+            <td >
                 {{#switch status}}
                 {{#case "P"}}
-                <option> Pendente </option>
+                <option class="status pendente"> Pendente </option>
                 {{/case}}
                 {{#case "A"}}
-                <option> Em análise </option>
+                <option class="status analise"> Em análise </option>
                 {{/case}}
                 {{#case "R"}}
-                <option> Resolvido </option>
+                <option class="status resolvido"> Resolvido </option>
                 {{/case}}
                 {{#case "C"}}
-                <option> Cancelado </option>
+                <option class="status cancelado"> Cancelado </option>
                 {{/case}}
                 {{#default}}
                 <option> Valor desconhecido </option>
@@ -35,7 +40,12 @@
             <td>{{categoria}}</td>
             <td>{{#if tecnicoId}}{{tecnicoId}}{{else}}N/A{{/if}}</td>
             <td>{{observacao}}</td>
+            {{#if ../adm}}
             <td><a href="ticketUpdate/{{id}}">Editar</a></td>
+            {{/if}}
+            {{#if ../tecnico}}
+            <td><a href="ticketUpdate/{{id}}">Editar</a></td>
+            {{/if}}
         </tr>
         {{/each}}
     </table>

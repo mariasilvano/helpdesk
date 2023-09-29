@@ -22,39 +22,37 @@ body *{
     padding: 40px 10px 30px 10px;
     border-right: 1px solid  #2f2841;
 }
-.sidebar nav{
- justify-items: center;
+
+.sidebar i{  
+    align-items: center;
+    color: #77ffc0;
 }
 
 .sidebar button{
     height: 60px;
-    background: transparent;
     border: 0;
     font-family: inherit;
     color: inherit;
     cursor: pointer;
     text-align: left;
-    padding: 0;
-    transition: all 0.35s;
-}
-
-.sidebar button{
+    background: transparent;
     display: inline-flex;
     align-items: center;
     gap: 12px;
     height: 48px;
-    padding: 0 16px 0 12px;
+    padding: 0 6px 0 6px;
     border-radius: 24px;
     line-height: 1;
     transition: all 0.2s;
     color: #77ffc0;
 }
 
-.sidebar button:hover {
+.sidebar a:hover {
     background: #2f2841;
+    border-radius: 30px;
 }
 
-.sidebar button.ativo > span{
+.sidebar button.ativo{
     background-color: #2f2841;
 }
 
@@ -319,4 +317,30 @@ body *{
 table, th,td{
     padding: 1rem;
     text-align: center;
+}
+.status{
+    border-radius: 4rem;
+    padding: .4rem .4rem;
+}
+.status.pendente{
+    background-color: #ff5b5b;
+    color:#b30021
+}
+.status.analise{
+    background-color: #ffcc6d;
+    color: #c28200;
+}
+.status.resolvido{
+    background-color: #86e49d;
+    color: #006b21;
+}
+.status.cancelado{
+    background-color: #494949;
+    color: black;
+}
+input:disabled {
+    color: rgb(51, 51, 51);
+}
+textarea:disabled {
+    color: rgb(51, 51, 51);
 }
